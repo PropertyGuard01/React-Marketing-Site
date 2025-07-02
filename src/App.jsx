@@ -49,26 +49,19 @@ function App() {
       rating: 5
     },
     {
-      name: "Jennifer Adams",
-      role: "Estate Agent, Durban",
-      content: "Properties with complete PropertyGuard documentation sell faster and at premium prices. Buyers want certainty in uncertain times.",
+      name: "Thandi Mthembu",
+      role: "Property Manager, Durban", 
+      content: "The platform's EWC protection features give our clients confidence. We can prove compliance and property value with complete documentation.",
       rating: 5
     }
   ]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-blue-600" />
               <span className="text-2xl font-bold text-gray-900">PropertyGuard</span>
@@ -80,8 +73,10 @@ function App() {
               <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors">How It Works</a>
               <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors">Pricing</a>
               <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">Reviews</a>
-              <Button variant="outline" className="mr-2">Sign In</Button>
-              <Button>Get Started</Button>
+              <div className="flex items-center space-x-4">
+                <Button variant="outline">Sign In</Button>
+                <Button>Get Started</Button>
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -134,7 +129,7 @@ function App() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8 py-4">
+                <Button size="lg" className="text-lg px-8 py-4" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
                   Secure My Property
                   <Shield className="ml-2 h-5 w-5" />
                 </Button>
@@ -144,10 +139,10 @@ function App() {
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 text-sm text-gray-600">
+              <div className="flex flex-col sm:flex-row gap-6 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Complete Documentation</span>
+                  <span>EWC Protection</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
@@ -158,7 +153,10 @@ function App() {
                   <span>Value Preservation</span>
                 </div>
               </div>
-            </div>
+
+              <div className="flex flex-col sm:flex-row gap-6 text-sm text-gray-600">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
                   <span>No Credit Card Required</span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -178,25 +176,27 @@ function App() {
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="flex items-center space-x-2">
-                        <FileText className="h-5 w-5 text-blue-600" />
-                        <span className="text-sm font-medium">Documents</span>
-                      </div>
-                      <p className="text-2xl font-bold text-blue-600 mt-2">24</p>
+                      <div className="text-2xl font-bold text-blue-600">5</div>
+                      <div className="text-sm text-gray-600">Documents</div>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg">
-                      <div className="flex items-center space-x-2">
-                        <Shield className="h-5 w-5 text-green-600" />
-                        <span className="text-sm font-medium">Coverage</span>
-                      </div>
-                      <p className="text-2xl font-bold text-green-600 mt-2">Valid</p>
+                      <div className="text-2xl font-bold text-green-600">3</div>
+                      <div className="text-sm text-gray-600">Warranties</div>
+                    </div>
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <div className="text-2xl font-bold text-yellow-600">2</div>
+                      <div className="text-sm text-gray-600">Expiring</div>
+                    </div>
+                    <div className="bg-red-50 p-4 rounded-lg">
+                      <div className="text-2xl font-bold text-red-600">1</div>
+                      <div className="text-sm text-gray-600">Alert</div>
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm">Electrical COC</span>
-                      <Badge className="bg-green-100 text-green-800">Valid</Badge>
+                      <span className="text-sm">Home Insurance</span>
+                      <Badge className="bg-green-100 text-green-800">Active</Badge>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm">Roof Warranty</span>
@@ -222,387 +222,305 @@ function App() {
               South African Property Owners Face Unprecedented Challenges
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Between EWC uncertainty and insurance claim rejections, your property investment has never been more vulnerable. 
-              PropertyGuard helps you control what you can.
+              Between EWC uncertainty and insurance claim rejections, your property investment has never been more vulnerable.
             </p>
-
+            
             <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <Card className="border-red-200 bg-white">
-                <CardHeader>
-                  <Scale className="h-12 w-12 text-red-500 mb-4" />
-                  <CardTitle className="text-red-700">EWC Uncertainty</CardTitle>
-                  <CardDescription>
-                    Expropriation Without Compensation creates property value uncertainty. 
-                    Proper documentation is your best defense.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Scale className="h-8 w-8 text-red-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">EWC Uncertainty</h3>
+                <p className="text-gray-600">
+                  Expropriation Without Compensation creates uncertainty for property owners. 
+                  Proper documentation could be crucial for any compensation claims.
+                </p>
+                <div className="mt-4 text-sm text-red-600 font-medium">
+                  73% of property owners lack complete documentation
+                </div>
+              </div>
 
-              <Card className="border-red-200 bg-white">
-                <CardHeader>
-                  <AlertTriangle className="h-12 w-12 text-red-500 mb-4" />
-                  <CardTitle className="text-red-700">R2.3 Billion</CardTitle>
-                  <CardDescription>
-                    Annual insurance claims rejected in South Africa due to non-compliance. 
-                    Don't let poor documentation cost you.
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <AlertTriangle className="h-8 w-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Insurance Claims Rejected</h3>
+                <p className="text-gray-600">
+                  R2.3 billion in insurance claims are rejected annually in South Africa due to 
+                  inadequate documentation and compliance gaps.
+                </p>
+                <div className="mt-4 text-sm text-orange-600 font-medium">
+                  42% rejection rate for property claims
+                </div>
+              </div>
 
-              <Card className="border-red-200 bg-white">
-                <CardHeader>
-                  <FileText className="h-12 w-12 text-red-500 mb-4" />
-                  <CardTitle className="text-red-700">73%</CardTitle>
-                  <CardDescription>
-                    Of South African property owners lack proper documentation. 
-                    Are you prepared for insurance claims or legal challenges?
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </div>
-
-            <div className="mt-12 p-8 bg-white rounded-xl border border-red-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">The PropertyGuard Solution</h3>
-              <p className="text-lg text-gray-600">
-                While you can't control government policy, you can control your property's compliance, documentation, 
-                and value. PropertyGuard ensures you're prepared for whatever comes next.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-                <CardHeader>
-                  <Clock className="h-12 w-12 text-red-500 mb-4" />
-                  <CardTitle className="text-red-700">6 Months</CardTitle>
-                  <CardDescription>
-                    Average time to resolve insurance disputes - if you can find the right documentation
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Documentation Gaps</h3>
+                <p className="text-gray-600">
+                  Property owners struggle to maintain comprehensive records of warranties, 
+                  compliance certificates, and maintenance history.
+                </p>
+                <div className="mt-4 text-sm text-blue-600 font-medium">
+                  Average property missing 60% of critical documents
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Solution */}
-      <section id="features" className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8 mb-16">
+            <Badge className="bg-blue-100 text-blue-800">
+              The PropertyGuard Solution
+            </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              The World's First Policy-Driven Property Platform
+              Control What You Can Control
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We work backwards from your insurance policy to ensure you're actually covered, not just insured.
+              While you can't control EWC policy or insurance company decisions, you can ensure your property 
+              is fully documented, compliant, and protected with PropertyGuard's comprehensive platform.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="border-blue-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Target className="h-12 w-12 text-blue-600 mb-4" />
-                <CardTitle>Policy Analysis Engine</CardTitle>
-                <CardDescription>
-                  AI-powered analysis of your insurance policies to extract specific requirements and compliance obligations.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Automatic requirement extraction</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Local standards integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Gap identification</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">EWC Protection Through Documentation</h3>
+                    <p className="text-gray-600">
+                      Maintain tamper-proof records of ownership, improvements, and compliance that could be 
+                      crucial for legal proceedings or compensation claims.
+                    </p>
+                  </div>
+                </div>
 
-            <Card className="border-green-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Shield className="h-12 w-12 text-green-600 mb-4" />
-                <CardTitle>Intelligent Compliance</CardTitle>
-                <CardDescription>
-                  Guided workflows ensure you meet every requirement for valid insurance coverage.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Step-by-step compliance guidance</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Automated renewal reminders</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Real-time coverage validation</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Insurance Claim Success</h3>
+                    <p className="text-gray-600">
+                      Automatically identify coverage gaps and maintain the documentation needed for 
+                      successful insurance claims.
+                    </p>
+                  </div>
+                </div>
 
-            <Card className="border-purple-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <BarChart3 className="h-12 w-12 text-purple-600 mb-4" />
-                <CardTitle>Risk Assessment</CardTitle>
-                <CardDescription>
-                  Comprehensive property risk analysis for transactions, insurance, and investment decisions.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Property valuation impact</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Transaction negotiation tools</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Investment risk scoring</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Database className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Complete Property Intelligence</h3>
+                    <p className="text-gray-600">
+                      Track warranties, compliance certificates, maintenance records, and property 
+                      improvements in one secure platform.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Button size="lg" className="text-lg px-8 py-4" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
+                Start Protecting Your Property
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Property Protection Score</h3>
+                    <Badge className="bg-green-100 text-green-800">Excellent</Badge>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">EWC Documentation</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-24 h-2 bg-gray-200 rounded-full">
+                          <div className="w-20 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <span className="text-sm font-medium">95%</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Insurance Coverage</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-24 h-2 bg-gray-200 rounded-full">
+                          <div className="w-22 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <span className="text-sm font-medium">92%</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm">Compliance Status</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-24 h-2 bg-gray-200 rounded-full">
+                          <div className="w-24 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <span className="text-sm font-medium">100%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-green-500" />
+                      <span className="text-sm font-medium">Property Fully Protected</span>
+                    </div>
+                    <p className="text-xs text-gray-600">
+                      Your property documentation is complete and compliant. You're prepared for EWC challenges and insurance claims.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gray-50">
+      {/* Features */}
+      <section id="features" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              How PropertyGuard Works
+              Comprehensive Property Protection
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Simple, intelligent, and comprehensive property protection in four steps.
+              PropertyGuard provides everything you need to protect your property investment in uncertain times.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-8">
-            <div className="text-center space-y-4">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-blue-600">1</span>
-              </div>
-              <h3 className="text-xl font-semibold">Upload Your Policies</h3>
-              <p className="text-gray-600">
-                Upload your insurance policies and bank bond documents. Our AI extracts all requirements automatically.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle>EWC Documentation</CardTitle>
+                <CardDescription>
+                  Maintain comprehensive ownership and improvement records that could be crucial for EWC proceedings.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
-            <div className="text-center space-y-4">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-green-600">2</span>
-              </div>
-              <h3 className="text-xl font-semibold">Analyze Requirements</h3>
-              <p className="text-gray-600">
-                We analyze your policies against local standards and identify exactly what you need for valid coverage.
-              </p>
-            </div>
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle>Insurance Gap Detection</CardTitle>
+                <CardDescription>
+                  Automatically identify coverage gaps and ensure you have the documentation needed for successful claims.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
-            <div className="text-center space-y-4">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-purple-600">3</span>
-              </div>
-              <h3 className="text-xl font-semibold">Guided Compliance</h3>
-              <p className="text-gray-600">
-                Follow our step-by-step guidance to acquire missing documentation and maintain compliance.
-              </p>
-            </div>
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle>Compliance Tracking</CardTitle>
+                <CardDescription>
+                  Monitor all compliance certificates, warranties, and maintenance records in one secure platform.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
-            <div className="text-center space-y-4">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-2xl font-bold text-orange-600">4</span>
-              </div>
-              <h3 className="text-xl font-semibold">Stay Protected</h3>
-              <p className="text-gray-600">
-                Continuous monitoring ensures your coverage remains valid with automated alerts and reminders.
-              </p>
-            </div>
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <AlertTriangle className="h-6 w-6 text-orange-600" />
+                </div>
+                <CardTitle>Risk Assessment</CardTitle>
+                <CardDescription>
+                  Get intelligent alerts about potential risks, expiring warranties, and compliance deadlines.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <Lock className="h-6 w-6 text-red-600" />
+                </div>
+                <CardTitle>Secure Storage</CardTitle>
+                <CardDescription>
+                  Bank-grade security ensures your property documents are safe, accessible, and tamper-proof.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-yellow-600" />
+                </div>
+                <CardTitle>Property Intelligence</CardTitle>
+                <CardDescription>
+                  Get insights into your property's protection status, value preservation, and compliance health.
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-white">
+      <section id="testimonials" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              Trusted by Property Owners Across South Africa
+              Trusted by South African Property Owners
             </h2>
-            <p className="text-xl text-gray-600">
-              See how PropertyGuard has protected investments and prevented claim rejections.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how PropertyGuard is helping property owners protect their investments in uncertain times.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-none shadow-xl">
-              <CardContent className="p-8">
-                <div className="text-center space-y-6">
-                  <div className="flex justify-center space-x-1">
-                    {[...Array(testimonials[activeTestimonial].rating)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-lg">
+                <CardHeader>
+                  <div className="flex items-center space-x-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  
-                  <blockquote className="text-xl lg:text-2xl text-gray-700 italic leading-relaxed">
-                    "{testimonials[activeTestimonial].content}"
-                  </blockquote>
-                  
-                  <div className="space-y-2">
-                    <p className="font-semibold text-gray-900">
-                      {testimonials[activeTestimonial].name}
-                    </p>
-                    <p className="text-gray-600">
-                      {testimonials[activeTestimonial].role}
-                    </p>
+                  <CardDescription className="text-base leading-relaxed">
+                    "{testimonial.content}"
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-medium text-blue-600">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="font-medium">{testimonial.name}</div>
+                      <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="flex justify-center space-x-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8 mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-xl text-gray-600">
-              Choose the plan that fits your property portfolio.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="border-gray-200">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Starter</CardTitle>
-                <CardDescription>Perfect for single property owners</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold">R99</span>
-                  <span className="text-gray-600">/month</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>1 Property</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Policy Analysis</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Compliance Tracking</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Basic Support</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6">Start Free Trial</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-blue-500 shadow-lg scale-105">
-              <CardHeader className="text-center">
-                <Badge className="bg-blue-100 text-blue-800 mb-2">Most Popular</Badge>
-                <CardTitle className="text-2xl">Professional</CardTitle>
-                <CardDescription>For property investors and professionals</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold">R299</span>
-                  <span className="text-gray-600">/month</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Up to 5 Properties</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Advanced Risk Assessment</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Property Transfer Tools</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Priority Support</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>API Access</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6">Start Free Trial</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-gray-200">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Enterprise</CardTitle>
-                <CardDescription>For large portfolios and institutions</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold">Custom</span>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Unlimited Properties</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>White Label Options</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Custom Integrations</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>Dedicated Support</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span>SLA Guarantees</span>
-                  </li>
-                </ul>
-                <Button variant="outline" className="w-full mt-6">Contact Sales</Button>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -612,24 +530,36 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             <h2 className="text-3xl lg:text-4xl font-bold text-white">
-              Don't Wait for a Claim Rejection
+              Protect Your Property Investment Today
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Join thousands of property owners who have secured their investments with PropertyGuard. 
-              Start your free trial today and ensure your insurance actually covers you.
+              Don't wait for EWC uncertainty or insurance claim rejections to affect you. 
+              Start protecting your property with PropertyGuard's comprehensive platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-4">
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-4" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
                 Start Free Trial
+                <Shield className="ml-2 h-5 w-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600">
+                Schedule Demo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-blue-600">
-                Schedule Demo
-              </Button>
             </div>
-            <p className="text-sm text-blue-200">
-              14-day free trial • No credit card required • Cancel anytime
-            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-blue-100">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5" />
+                <span>14-day free trial</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5" />
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5" />
+                <span>Cancel anytime</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -644,47 +574,48 @@ function App() {
                 <span className="text-2xl font-bold">PropertyGuard</span>
               </div>
               <p className="text-gray-400">
-                Intelligent property management and risk protection for the modern world.
+                Protecting South African property investments through comprehensive documentation and compliance management.
               </p>
               <div className="flex space-x-4">
-                <Globe className="h-5 w-5 text-gray-400" />
-                <span className="text-gray-400">Available Worldwide</span>
+                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white">
+                  <Globe className="h-5 w-5" />
+                </Button>
               </div>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-              </ul>
+              <div className="space-y-2 text-gray-400">
+                <a href="#features" className="block hover:text-white transition-colors">Features</a>
+                <a href="#pricing" className="block hover:text-white transition-colors">Pricing</a>
+                <a href="#security" className="block hover:text-white transition-colors">Security</a>
+                <a href="#integrations" className="block hover:text-white transition-colors">Integrations</a>
+              </div>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
+              <div className="space-y-2 text-gray-400">
+                <a href="#about" className="block hover:text-white transition-colors">About</a>
+                <a href="#blog" className="block hover:text-white transition-colors">Blog</a>
+                <a href="#careers" className="block hover:text-white transition-colors">Careers</a>
+                <a href="#contact" className="block hover:text-white transition-colors">Contact</a>
+              </div>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              </ul>
+              <div className="space-y-2 text-gray-400">
+                <a href="#help" className="block hover:text-white transition-colors">Help Center</a>
+                <a href="#docs" className="block hover:text-white transition-colors">Documentation</a>
+                <a href="#status" className="block hover:text-white transition-colors">Status</a>
+                <a href="mailto:support@propertyguard.co.za" className="block hover:text-white transition-colors">support@propertyguard.co.za</a>
+              </div>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 PropertyGuard. All rights reserved.</p>
+            <p>&copy; 2024 PropertyGuard. All rights reserved. Protecting South African property investments.</p>
           </div>
         </div>
       </footer>

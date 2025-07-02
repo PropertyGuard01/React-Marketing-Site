@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
+import { useState } from 'react'
 import { 
   Shield, 
   FileText, 
@@ -23,7 +24,11 @@ import {
   DollarSign,
   Clock,
   BarChart3,
-  Lock
+  Lock,
+  Scale,
+  MapPin,
+  Database,
+  Briefcase
 } from 'lucide-react'
 import './App.css'
 
@@ -35,19 +40,19 @@ function App() {
     {
       name: "Sarah Mitchell",
       role: "Homeowner, Cape Town",
-      content: "PropertyGuard saved me R50,000 when my insurance tried to reject my roof claim. The app showed I had all required documentation and compliance certificates.",
+      content: "With EWC uncertainty, PropertyGuard gives me peace of mind. My property is fully documented and compliant - I'm protecting what I can control.",
       rating: 5
     },
     {
-      name: "Mike van der Merwe",
-      role: "Roofing Contractor",
-      content: "This app protects both me and my clients. Clear liability chains and proper documentation mean no disputes years later.",
+      name: "Mike van der Merwe", 
+      role: "Property Developer, Johannesburg",
+      content: "PropertyGuard helped us identify compliance gaps that could have cost millions. In today's uncertain market, proper documentation is everything.",
       rating: 5
     },
     {
       name: "Jennifer Adams",
-      role: "Estate Agent",
-      content: "Properties with complete PropertyGuard files sell 15% faster and at better prices. Buyers have confidence in what they're purchasing.",
+      role: "Estate Agent, Durban",
+      content: "Properties with complete PropertyGuard documentation sell faster and at premium prices. Buyers want certainty in uncertain times.",
       rating: 5
     }
   ]
@@ -116,23 +121,23 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
-                  🚀 Revolutionary Property Protection
+                <Badge className="bg-red-100 text-red-800 hover:bg-red-100">
+                  🛡️ Protect What You Can Control
                 </Badge>
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Your Property's
-                  <span className="text-blue-600"> Digital DNA</span>
+                  Property Protection in
+                  <span className="text-blue-600"> Uncertain Times</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  The world's first policy-driven property management platform. Ensure true insurance coverage, 
-                  track compliance, and protect your investment with intelligent risk assessment.
+                  With EWC uncertainty affecting South African property owners, PropertyGuard ensures your investment 
+                  is fully documented, compliant, and protected. Control what you can - your property's digital DNA.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="text-lg px-8 py-4">
-                  Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Secure My Property
+                  <Shield className="ml-2 h-5 w-5" />
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg px-8 py-4">
                   <Play className="mr-2 h-5 w-5" />
@@ -143,6 +148,18 @@ function App() {
               <div className="flex items-center space-x-8 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span>Complete Documentation</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span>Legal Protection</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span>Value Preservation</span>
+                </div>
+              </div>
+            </div>
                   <span>No Credit Card Required</span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -203,19 +220,32 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-              The Hidden Crisis in Property Insurance
+              South African Property Owners Face Unprecedented Challenges
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Having insurance doesn't guarantee coverage. Most property owners discover this too late.
+              Between EWC uncertainty and insurance claim rejections, your property investment has never been more vulnerable. 
+              PropertyGuard helps you control what you can.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <Card className="border-red-200 bg-white">
                 <CardHeader>
+                  <Scale className="h-12 w-12 text-red-500 mb-4" />
+                  <CardTitle className="text-red-700">EWC Uncertainty</CardTitle>
+                  <CardDescription>
+                    Expropriation Without Compensation creates property value uncertainty. 
+                    Proper documentation is your best defense.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-red-200 bg-white">
+                <CardHeader>
                   <AlertTriangle className="h-12 w-12 text-red-500 mb-4" />
                   <CardTitle className="text-red-700">R2.3 Billion</CardTitle>
                   <CardDescription>
-                    Annual insurance claims rejected in South Africa due to non-compliance
+                    Annual insurance claims rejected in South Africa due to non-compliance. 
+                    Don't let poor documentation cost you.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -225,12 +255,23 @@ function App() {
                   <FileText className="h-12 w-12 text-red-500 mb-4" />
                   <CardTitle className="text-red-700">73%</CardTitle>
                   <CardDescription>
-                    Of property owners lack proper documentation for their insurance requirements
+                    Of South African property owners lack proper documentation. 
+                    Are you prepared for insurance claims or legal challenges?
                   </CardDescription>
                 </CardHeader>
               </Card>
+            </div>
 
-              <Card className="border-red-200 bg-white">
+            <div className="mt-12 p-8 bg-white rounded-xl border border-red-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">The PropertyGuard Solution</h3>
+              <p className="text-lg text-gray-600">
+                While you can't control government policy, you can control your property's compliance, documentation, 
+                and value. PropertyGuard ensures you're prepared for whatever comes next.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
                 <CardHeader>
                   <Clock className="h-12 w-12 text-red-500 mb-4" />
                   <CardTitle className="text-red-700">6 Months</CardTitle>

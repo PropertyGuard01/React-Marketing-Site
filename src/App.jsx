@@ -481,6 +481,172 @@ function App() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-8 mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose the plan that fits your property protection needs. All plans include EWC documentation and insurance gap detection.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Basic Plan */}
+            <Card className="border-2 border-gray-200 hover:border-blue-300 transition-colors">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Basic</CardTitle>
+                <CardDescription>Perfect for single property owners</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold">R299</span>
+                  <span className="text-gray-600">/month</span>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>1 Property</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Unlimited Document Storage</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>EWC Documentation</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Insurance Gap Detection</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Warranty Tracking</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Email Support</span>
+                  </div>
+                </div>
+                <Button className="w-full mt-6" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
+                  Start Free Trial
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Professional Plan */}
+            <Card className="border-2 border-blue-500 relative hover:border-blue-600 transition-colors">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-blue-500 text-white px-4 py-1">Most Popular</Badge>
+              </div>
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Professional</CardTitle>
+                <CardDescription>Ideal for property investors</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold">R599</span>
+                  <span className="text-gray-600">/month</span>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Up to 5 Properties</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Everything in Basic</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Advanced Risk Assessment</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Compliance Automation</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Property Intelligence Reports</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Priority Support</span>
+                  </div>
+                </div>
+                <Button className="w-full mt-6" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
+                  Start Free Trial
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Enterprise Plan */}
+            <Card className="border-2 border-gray-200 hover:border-purple-300 transition-colors">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Enterprise</CardTitle>
+                <CardDescription>For property management companies</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold">R1,299</span>
+                  <span className="text-gray-600">/month</span>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Unlimited Properties</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Everything in Professional</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Multi-User Access</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>API Access</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Custom Integrations</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span>Dedicated Account Manager</span>
+                  </div>
+                </div>
+                <Button className="w-full mt-6" onClick={() => window.open('https://app.propertyguard.co.za', '_blank')}>
+                  Contact Sales
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">All plans include a 14-day free trial. No credit card required.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-gray-500">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>Cancel anytime</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>VAT included</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>South African Rand pricing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section id="testimonials" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

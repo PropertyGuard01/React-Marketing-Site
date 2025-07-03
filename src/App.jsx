@@ -133,7 +133,7 @@ function App() {
                   Get Started
                   <Shield className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}>
                   <Play className="mr-2 h-5 w-5" />
                   Watch Demo
                 </Button>
